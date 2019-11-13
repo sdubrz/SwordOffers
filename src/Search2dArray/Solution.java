@@ -8,7 +8,7 @@ public class Solution {
 	 * @param array
 	 * @return
 	 */
-	public boolean Find(int target, int [][] array) {
+	public boolean Find2(int target, int [][] array) {
 		int n = array.length;
 		int m = array[0].length;
 		
@@ -78,6 +78,29 @@ public class Solution {
 			int point = (n_low+n_up) / 2;
 			if(array[point][0]>=target) {
 				
+			}
+		}
+		
+		return false;
+	}
+		
+	public boolean Find(int target, int [][] array) {
+		int n = array.length;
+		int m = array[0].length;
+		if(n==0 || m==0) {
+			return false;
+		}
+		
+		int i = 0;
+		int j = m-1;
+		while(i<n && j>=0) {
+			if(array[i][j]==target) {
+				return true;
+			}
+			if(array[i][j] > target) {
+				j--;
+			}else {
+				i++;
 			}
 		}
 		
