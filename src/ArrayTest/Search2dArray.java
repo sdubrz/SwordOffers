@@ -1,5 +1,12 @@
 package ArrayTest;
 
+/***
+ *      ÌâÄ¿Á´½Ó
+ *      https://www.nowcoder.com/practice/abc3fe2ce8e146608e868a70efebf62e?tpId=13&tqId=11154&tPage=1&rp=3&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking
+ *      
+ * @author sdu20
+ *
+ */
 public class Search2dArray {
 	
 	/***
@@ -8,7 +15,7 @@ public class Search2dArray {
 	 * @param array
 	 * @return
 	 */
-	public boolean Find(int target, int [][] array) {
+	public boolean Find2(int target, int [][] array) {
 		int n = array.length;
 		int m = array[0].length;
 		if(n==1 && m==1) {
@@ -60,6 +67,29 @@ public class Search2dArray {
 		}
 		
 		//System.out.println("no found");
+		return false;
+	}
+	
+	public boolean Find(int target, int [][] array) {
+		int n = array.length;
+		int m = array[0].length;
+		if(n==0 || m==0) {
+			return false;
+		}
+		
+		int i = 0;
+		int j = m-1;
+		while(i<n && j>=0) {
+			if(array[i][j]==target) {
+				return true;
+			}
+			if(array[i][j] > target) {
+				j--;
+			}else {
+				i++;
+			}
+		}
+		
 		return false;
 	}
 
